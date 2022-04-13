@@ -24,6 +24,7 @@ float stringConversionFloat(string& input) {
         if (input[i] == '-') {
             continue;
         }
+        
         //Checks for all digits going past the decimal in the the string
         if (input[i] == '.' && input[i + 1] != '\0') {
             for (int j = i + 1; input[j] != '\0'; j++) {
@@ -91,6 +92,9 @@ float fLiteral(string& input, bool checkF, bool checkE, int positionF, int posit
             if (input[i] == '_') {
                 continue;
             }
+            if (input[i] == '+') {
+                continue;
+            }
             //ignores f literal for conversion into float
             if (i == positionF) {
                 break;
@@ -106,6 +110,9 @@ float fLiteral(string& input, bool checkF, bool checkE, int positionF, int posit
         //For loop iterates through input and turns string into float by dropping the f literal
         for (int i = 0; i < strLen; i++) {
             if (input[i] == '_') {
+                continue;
+            }
+            if (input[i] == '+') {
                 continue;
             }
             //ignores both e and f literal for conversion into float
