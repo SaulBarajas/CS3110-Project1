@@ -24,7 +24,7 @@ float stringConversionFloat(string& input) {
         if (input[i] == '-') {
             continue;
         }
-        
+
         //Checks for all digits going past the decimal in the the string
         if (input[i] == '.' && input[i + 1] != '\0') {
             for (int j = i + 1; input[j] != '\0'; j++) {
@@ -171,7 +171,7 @@ bool checkIfValid(string input)
     int fCounter = 0;
     for (int i = 0; i < input.length(); i++)
     {
-        //All the conditions to check if 'e' vioaltes any of the conditions   
+        //All the conditions to check if 'e' vioaltes any of the conditions
         if (input.at(i) == 'e' || input.at(i) == 'E')
         {
             eCounter++;
@@ -194,9 +194,9 @@ bool checkIfValid(string input)
                 break;
             }
             //if it has a digit before and after the e OR digit before the e and - after
-            else if (isDigit(input.at(i - 1)) && isDigit(input.at(i + 1)) || isDigit(input.at(i - 1)) && input.at(i+1) == '-')
+            else if (isDigit(input.at(i - 1)) && isDigit(input.at(i + 1)) || isDigit(input.at(i - 1)) && input.at(i+1) == '-' || isDigit(input.at(i-1) && input.at(i+1) == '+'))
             {
-                
+
             }
             else
             {
@@ -205,7 +205,7 @@ bool checkIfValid(string input)
             }
 
         }
-        
+
         //Conditions to check if it is valid regarding F
         if (input.at(i) == 'f' || input.at(i) == 'F')
         {
@@ -219,7 +219,7 @@ bool checkIfValid(string input)
             //if the previous to this f is not a digit
             else if (isDigit(input.at(i - 1)))
             {
-                
+
             }
             else
             {
@@ -231,7 +231,7 @@ bool checkIfValid(string input)
         //Invalid if there are characters other than digits, e, E, f, F, _ , ., or -
         if (isDigit(input.at(i)) || input.at(i) == 'q' || input.at(i) == 'e' || input.at(i) == 'E' || input.at(i) == 'F' || input.at(i) == 'f' || input.at(i) == '_' || input.at(i) == '.' || input.at(i) == '-')
         {
-            
+
         }
         else
         {
@@ -245,7 +245,7 @@ bool checkIfValid(string input)
             //if it is the very first one in the input or right after the e with digits right after
             if (i == 0 || input.at(i - 1) == 'e' && isDigit(input.at(i+1)))
             {
-                
+
             }
             else
             {
@@ -266,7 +266,7 @@ bool checkIfValid(string input)
             //rules for the _
             else if (isDigit(input.at(i - 1)) && isDigit(input.at(i + 1)) || isDigit(input.at(i-1)) && input.at(i + 1) == '_' || input.at(i - 1) == '_' && isDigit(input.at(i + 1)) || input.at(i - 1) == '_' && input.at(i + 1) == '_')
             {
-                
+
             }
             else
             {
@@ -310,7 +310,7 @@ int main() {
             continue;
         }
 
-        //Looks for the position of f or F within the inputted string 
+        //Looks for the position of f or F within the inputted string
         if (checkF == false) {
             positionF = input.find("f");
             if (positionF != -1) {
@@ -344,7 +344,7 @@ int main() {
 
 
         //Chooses the function depending on input
-        
+
         fLiteral(input, checkF, checkE, positionF, positionE, check_, position_);
     }
 
